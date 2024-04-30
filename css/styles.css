@@ -49,6 +49,8 @@ button {
 
 .page-header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .container {
@@ -103,16 +105,23 @@ button {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.menu-item-studio {
+  position: relative;
+}
+
+.menu-studio {
+  color: #404bbf;
+}
+
 .menu-studio:active::after {
-  display: block;
+  position: absolute;
   content: "";
-  width: 48px;
+  width: 100%;
   height: 4px;
+  left: 0;
+  bottom: -1px;
   border-radius: 2px;
   background-color: #404bbf;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
 }
 
 .menu-link:hover,
@@ -152,7 +161,10 @@ button {
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/main.jpg);
+  max-width: 1440px;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   background-clip: padding-box;
   padding: 188px 0;
 }
@@ -226,13 +238,9 @@ button {
   height: 112px;
   background: #f4f4fd;
   margin-bottom: 8px;
-}
-
-.strategy-icon,
-.punctuality-icon,
-.diligence-icon,
-.technologies-icon {
-  margin: 24px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .advantages-list-header {
@@ -277,8 +285,6 @@ button {
 .our-team-container-text {
   padding-top: 32px;
   padding-bottom: 32px;
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .our-team-header {
@@ -301,8 +307,10 @@ button {
 }
 
 .our-team-item {
-  background: #fff;
+  background: #ffffff;
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   width: calc((100% - 72px) / 4);
 }
 
@@ -312,17 +320,29 @@ button {
   gap: 24px;
 }
 
-.our-team-svg-item {
-  width: 40px;
-  height: 40px;
-  background-color: #4d5ae5;
+.our-team-svg-link {
+  width: 100%;
+  height: 100%;
+  color: #4d5ae5;
   border-radius: 50%;
-  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d5ae5;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.our-team-svg-item:hover,
-.our-team-svg-item:focus {
+.our-team-svg-item {
+  width: 40px;
+  height: 40px;
+}
+
+.our-team-icon {
+  fill: #f4f4fd;
+}
+
+.our-team-svg-link:hover,
+.our-team-svg-link:focus {
   background-color: #404bbf;
 }
 
@@ -348,12 +368,14 @@ button {
 }
 
 .portfolio-item {
-  background-color: #fff;
+  background-color: #ffffff;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item:hover {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  transform: translateY(0%);
 }
 
 .portfolio-container-text {
@@ -400,10 +422,10 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
-  padding: 40px 32px 164px 32px;
+  padding: 40px 32px;
 
   transform: translatey(100%);
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -446,7 +468,7 @@ button {
 .footer-main-container {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: baseline;
 }
 
 .footer-container {
@@ -458,31 +480,46 @@ button {
   width: 208px;
 }
 
-.footer-header {
+.footer-social-media-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   margin-bottom: 16px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .footer-svg-list {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
 }
 
-.footer-svg-item {
-  width: 40px;
-  height: 40px;
+.footer-svg-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*.footer-svg-item {
+  width: 100%;
+  height: 100%;
   background-color: #4d5ae5;
   border-radius: 50%;
   padding: 8px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}*/
+
+.footer-svg-link:hover,
+.footer-svg-link:focus {
+  background-color: #31d0aa;
 }
 
-.footer-svg-item:hover,
-.footer-svg-item:focus {
-  background-color: #31d0aa;
+.footer-icon {
+  fill: #f4f4fd;
 }
