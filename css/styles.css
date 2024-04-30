@@ -100,7 +100,21 @@ button {
   padding-top: 24px;
   padding-bottom: 24px;
   color: #2e2f42;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.menu-studio:active::after {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
 .menu-link:hover,
 .menu-link:focus,
 .menu-link:active {
@@ -117,6 +131,7 @@ button {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover,
@@ -131,7 +146,14 @@ button {
 /* ========== Main Section ========== */
 
 .main-section {
-  background: #2e2f42;
+  background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/main.jpg);
+  background-size: cover;
+  background-clip: padding-box;
   padding: 188px 0;
 }
 
@@ -165,11 +187,12 @@ button {
   border: none;
   min-width: 169px;
   height: 56px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .order-service-btn:hover,
 .order-service-btn:focus {
-  background: #404bbf;
+  background-color: #404bbf;
 }
 
 /* ========== Advantages Page ========== */
@@ -194,6 +217,22 @@ button {
 
 .advantages-list-item {
   flex-basis: calc((100% - 72px) / 4);
+}
+
+.advantages-box {
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background: #f4f4fd;
+  margin-bottom: 8px;
+}
+
+.strategy-icon,
+.punctuality-icon,
+.diligence-icon,
+.technologies-icon {
+  margin: 24px 100px;
 }
 
 .advantages-list-header {
@@ -258,12 +297,33 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 .our-team-item {
   background: #fff;
   border-radius: 0px 0px 4px 4px;
   width: calc((100% - 72px) / 4);
+}
+
+.our-team-svg-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.our-team-svg-item {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  padding: 12px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.our-team-svg-item:hover,
+.our-team-svg-item:focus {
+  background-color: #404bbf;
 }
 
 /* ========== Portfolio Page ========== */
@@ -288,7 +348,12 @@ button {
 }
 
 .portfolio-item {
-  background: #fff;
+  background-color: #fff;
+}
+
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-container-text {
@@ -314,6 +379,35 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: left;
+}
+
+.portfolio-box {
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  height: 300px;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #4d5ae5;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px 164px 32px;
+
+  transform: translatey(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translatey(0);
 }
 
 /* ========== Footer Page ========== */
@@ -347,4 +441,48 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+}
+
+.footer-main-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-container {
+  margin-right: 120px;
+  width: 264px;
+}
+
+.footer-containerr {
+  width: 208px;
+}
+
+.footer-header {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.footer-svg-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.footer-svg-item {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-svg-item:hover,
+.footer-svg-item:focus {
+  background-color: #31d0aa;
 }
